@@ -1,7 +1,8 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { App } from "./app";
 
-const items = ["hey", "hello", "bonjour", "holla"];
+function App(props: {}): JSX.Element {
+    return <div>Hello World!</div>;
+}
 
-ReactDOM.render(<App items={items}/>, document.getElementById("react-app"));
+ReactDOM.render(<App />, document.getElementById("app-root"));

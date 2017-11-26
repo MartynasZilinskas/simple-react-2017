@@ -1,8 +1,21 @@
 {
     "name": "simple-react",
     "scripts": {
-        "watch": "tsc -w",
-        "serve": "pushstate-server ./dist"
+        "prestarter-global": "echo Installing required global packages...",
+        "starter-global": "npm install gulp-cli@latest jspm@0.17.0-beta.44 -g",
+        "starter-all": "npm run starter-global && npm run starter",
+        "prestarter": "echo Preparing project...",
+        "starter": "npm install && jspm install",
+        "pretslint-test": "echo Starting TsLint test...",
+        "tslint-test": "tslint --config ./tslint.json --project . --exclude wwwroot && echo TsLint test successfully passed.",
+        "prets-build-test": "echo Starting TypeScript test...",
+        "ts-build-test": "tsc -p . --noEmit && echo TypeScript test successfully passed.",
+        "test": "npm run ts-build-test && npm run tslint-test && npm run validate-translation-types && npm run test-tslint-rules && echo All tests successfully passed.",
+        "prevalidate-translation-types": "gulp GenerateTranslationTypes",
+        "validate-translation-types": "node ./gulp-scripts/translations-ts-types-generator/validate-generated-file.js ./src/app/utils/locales/translation-types.ts",
+        "pretest-tslint-rules": "echo Starting TSLint rules TypeScript tests...",
+        "test-tslint-rules": "tsc -p ./tslint-rules/ --noEmit && echo TSLint rules TypeScript test successfully passed.",
+        "gulp": "gulp"
     },
     "dependencies": {
         "react": "^16.0.0",
@@ -14,6 +27,8 @@
         "awesome-typescript-loader": "^3.2.3",
         "jspm": "^0.17.0-beta.47",
         "pushstate-server": "^3.0.1",
+        "simplr-gulp": "^2.8.3",
+        "simplr-tslint": "0.0.1",
         "source-map-loader": "^0.2.3",
         "tslint": "^5.8.0",
         "typescript": "^2.5.3"
@@ -22,11 +37,11 @@
         "name": "simple-react",
         "main": "app/index.js",
         "directories": {
-            "packages": "dist/libs",
-            "baseURL": "dist"
+            "packages": "wwwroot/libs",
+            "baseURL": "wwwroot"
         },
         "configFiles": {
-            "jspm": "dist/configs/jspm.config.js"
+            "jspm": "src/configs/jspm.config.js"
         },
         "dependencies": {
             "react-dom": "npm:react-dom@^16.0.0",
@@ -34,6 +49,7 @@
         },
         "devDependencies": {},
         "peerDependencies": {
+            "css": "npm:systemjs-plugin-css@^0.1.35",
             "assert": "npm:jspm-nodelibs-assert@^0.2.0",
             "buffer": "npm:jspm-nodelibs-buffer@^0.2.0",
             "child_process": "npm:jspm-nodelibs-child_process@^0.2.0",

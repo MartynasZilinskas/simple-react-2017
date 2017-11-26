@@ -1,32 +1,31 @@
 {
-    "compileOnSave": false,
-    "compilerOptions": {
-      "target": "es5",
-      "module": "commonjs",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "es6"
-      ],
-      "jsx": "react",
-      "outDir": "./dist",
-      "rootDir": "./src",
-      "importHelpers": false,
-      "noEmitHelpers": true,
-      "downlevelIteration": true,
-      "experimentalDecorators": true,
-      "strict": true,
-      "noUnusedLocals": true,
-      "noImplicitReturns": true,
-      "moduleResolution": "node",
-      "baseUrl": "./",
-      "inlineSourceMap": true,
-      "inlineSources": true
-    },
-    "exclude": [
-      "node_modules",
-      "dist",
-      "@types"
-    ]
-  }
-  
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "es6"
+    ],
+    "jsx": "react",
+    "outDir": "./wwwroot",
+    "rootDir": "./src",
+    "importHelpers": false,
+    "noEmitHelpers": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "inlineSourceMap": true,
+    "inlineSources": true
+  },
+  "exclude": [
+    "node_modules",
+    "wwwroot",
+    "@types"
+  ]
+}
