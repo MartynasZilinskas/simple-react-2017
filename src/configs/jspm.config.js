@@ -1,4 +1,5 @@
 SystemJS.config({
+  baseURL: "/",
   packages: {
     "app": {
       "defaultExtension": "js",
